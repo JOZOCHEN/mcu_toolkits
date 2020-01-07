@@ -32,6 +32,7 @@ typedef struct
     uint8 cnt;
     uint8 last_state;
     uint8 stable_state;
+    void (*state_change_cb)(uint8 new_state);
 }Filter_Debounce_Handler;
 
 uint16 Filter_Ave_GetVal(Filter_Ave_Handler* handler, uint16 new_data);

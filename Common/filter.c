@@ -108,6 +108,9 @@ uint8 Filter_Debounce_GetVal(Filter_Debounce_Handler* handler, uint8 new_state)
             }
             else
             {
+                if((handler->stable_state != handler->last_state) && (handler->state_change_cb != NULL)){
+                    handler->state_change_cb(handler->last_state);
+                }
                 handler->stable_state = handler->last_state;
             }           
         }
